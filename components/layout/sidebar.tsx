@@ -1,32 +1,34 @@
 import React from "react";
 import SidebarLogo from "../SidebarLogo";
 import SideBarItem from "./SideBarItem";
-import { BsHouseFill } from "react-icons/bs";
+import { BsHouseFill, BsBellFill } from "react-icons/bs";
 import { BiLogOut } from "react-icons/bi";
+import { FaUser } from "react-icons/fa";
 import SidebarTweetButton from "./SidebarTweetButton";
+import FollowBar from "./FollowBar";
 
 export default function Sidebar() {
   const items = [
     {
       label: "Home",
       icon: BsHouseFill,
-      href: "href",
+      href: "/",
     },
     {
-      label: "Home",
-      icon: BsHouseFill,
-      href: "href",
+      label: "Notifications",
+      icon: BsBellFill,
+      href: "/notifications",
     },
     {
-      label: "Home",
-      icon: BsHouseFill,
-      href: "href",
+      label: "Profile",
+      icon: FaUser,
+      href: "/users",
     },
   ];
 
   return (
     <div className="">
-      <div className="">
+      <div className="p-3">
         <div className="">
           <SidebarLogo />
           {items.map((item, index) => {

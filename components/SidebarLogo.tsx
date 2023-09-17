@@ -9,7 +9,7 @@ function SidebarLogo() {
       text-white
       font-[30px]
       h-14
-      w-14
+      w-16
       p-4
     "
     >
