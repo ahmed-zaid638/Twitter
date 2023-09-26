@@ -1,13 +1,21 @@
+'use client'
+
+import useLoginModal from "../../hooks/useLoginModal";
 import { useRouter } from "next/router";
-import React from "react";
 import { FaFeather } from "react-icons/fa";
 
 function SidebarTweetButton() {
+  const  loginModal = useLoginModal()
   const router = useRouter();
+
+  const handleClick = () => { 
+     loginModal.onOpen()
+  }
   return (
-    <div onClick={() => "" }>
+    <div onClick={handleClick}>
       {/* Mobile  */}
-      <div className="
+      <div
+        className="
         text-white
           p-4 
           mt-6
@@ -22,11 +30,12 @@ function SidebarTweetButton() {
           hover:bg-opacity-80 
           transition 
           cursor-pointer
-
-        ">
+        "
+      >
         <FaFeather />
       </div>
-      <div className="
+      <div
+        className="
        bg-sky-400 
          rounded-full
          hidden
@@ -40,8 +49,9 @@ function SidebarTweetButton() {
          cursor-pointer
          
 
-      ">
-        <p 
+      "
+      >
+        <p
           className="
             hidden 
             lg:block 
@@ -49,12 +59,11 @@ function SidebarTweetButton() {
             font-semibold
             text-white 
             text-[20px]
-        ">
+        "
+        >
           Tweet
         </p>
-
       </div>
-
     </div>
   );
 }

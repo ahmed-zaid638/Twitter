@@ -9,7 +9,7 @@ interface itemsProps {
 }
 function SideBarItem({ label, Icon, href }: itemsProps) {
   return (
-    <div className="flex flex-row items-center cursor-pointer">
+    <div className="flex flex-row items-center cursor-pointer ">
       <div className="text-white p-4">
         <Icon size={24} />
       </div>
