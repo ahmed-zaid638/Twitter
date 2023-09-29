@@ -6,11 +6,16 @@
 - if you add sync before any function it will be a promise
 - hooks = logic 
 - Either use 'npm i package --save-dev'  or 'npm i  -D  package'
-
-
+- bcrypt.compare(first , second)
+- debug : process.env.NODE_ENV = "develoment"
+- NextApiRequest , NextApiReponse  from next
+- 
 
 ========= Mindset ===========
 - Catching rendering errors with an error boundary 
 - You are designing the UI and you have the logic side you 
 - In Auth UI you shoul depend on toggling modals not redirect urls
 - 
+
+============== Prisma  ==========
+- npx prisma db push
