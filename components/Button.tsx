@@ -8,7 +8,6 @@ interface ButtonProps {
   disabled?: boolean;
   outline?: boolean;
 }
-
 function Button({
   label,
   secondary,
@@ -20,6 +19,8 @@ function Button({
 }: ButtonProps) {
   return (
     <button
+      disabled={disabled}
+      onClick={onClick}
       className= {`
       disabled:opacity-70
       disabled:cursor-not-allowed

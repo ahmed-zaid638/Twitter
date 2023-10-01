@@ -5,3 +5,4 @@ const fetcher = (url: string) => {
 };
 
 export default fetcher;
+

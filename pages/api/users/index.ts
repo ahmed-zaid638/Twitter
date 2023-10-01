@@ -1,19 +1,20 @@
+import prisma from "@/libs/prismadb";
 import { NextApiRequest, NextApiResponse } from "next";
-import serverAuth from "@/libs/serverAuth";
 
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
   if (req.method !== "GET") {
-    return res.status(405).end();
+    return res.status(400);
   }
   try {
-    console.log("test 1");
-    const  currentUser  = await serverAuth(req, res);
-    console.log(currentUser)
-    console.log("test 2");
-    return  res.status(200).json(currentUser)
+    const users = await prisma.user.findMany({
+      orderBy: {
+        createdAt: "desc",
+      },
+    });
+    return res.status(200).json(users);
   } catch (error) {
     console.log(error);
     return res.status(400).end();

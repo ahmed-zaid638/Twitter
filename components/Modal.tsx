@@ -11,7 +11,6 @@ interface ModalProps {
   actionLabel: string;
   disabled?: boolean;
 }
-
 function Modal({
   isOpen,
   onClose,
@@ -27,8 +26,8 @@ function Modal({
     if (disabled) {
       return;
     }
-
     onClose();
+    console.log("closed");
   }, [onClose, disabled]);
 
   // handleSubmit
@@ -36,10 +35,8 @@ function Modal({
     if (disabled) {
       return;
     }
-
     onSubmit();
   }, [onSubmit, disabled]);
-
   if (!isOpen) {
     return null;
   }
@@ -103,12 +100,17 @@ function Modal({
               </button>
             </div>
             {/* body  */}
-            <div className="relative p-10 flex-auto">
-              {body}
-            </div>
+            <div className="relative p-10 flex-auto">{body}</div>
             {/*footer*/}
             <div className="flex flex-col gap-2 p-10 ">
-              <Button disabled={disabled} label={actionLabel} secondary fullWidth large onClick={handleSubmit} />
+              <Button
+                disabled={disabled}
+                label={actionLabel}
+                secondary
+                fullWidth
+                large
+                onClick={handleSubmit}
+              />
               {footer}
             </div>
           </div>

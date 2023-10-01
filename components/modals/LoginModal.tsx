@@ -4,6 +4,8 @@ import { NextPageContext } from "next";
 import Input from "../Input";
 import Modal from "../Modal";
 import useRegisterModal from "@/hooks/useRegisterModal";
+import { signIn } from "next-auth/react";
+import toast from "react-hot-toast";
 
 function LoginModal() {
   const LoginModal = useLoginModal();
@@ -16,19 +18,23 @@ function LoginModal() {
   const onToggle = useCallback(() => {
     RegisterModal.onOpen();
     LoginModal.onClose();
-  }, []);
+  }, [LoginModal, RegisterModal]);
   // onSubmit
   const onSubmit = useCallback(async () => {
     try {
       setIsLoading(true);
-
+      await signIn("credentials", {
+        email,
+        password,
+      });
+      toast.success("Logged in");
       LoginModal.onClose();
     } catch (error) {
       console.log(error);
     } finally {
       setIsLoading(false);
     }
-  }, [LoginModal]);
+  }, [LoginModal, password, email]);
   // bodyContent
   const bodyContent = (
     <div className="flex flex-col gap-4">
@@ -62,7 +68,6 @@ function LoginModal() {
         >
           {" "}
           Create an account
-        
         </span>
       </p>
     </div>
