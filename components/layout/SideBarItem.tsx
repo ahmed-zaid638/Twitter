@@ -19,6 +19,7 @@ function SideBarItem({ label, Icon, href, auth, onClick }: itemsProps) {
   // handleClick
   const handleClick = useCallback(() => {
     console.log(currentUser)
+    console.log("currentUser")
     if (onClick) {
       return onClick();
     }

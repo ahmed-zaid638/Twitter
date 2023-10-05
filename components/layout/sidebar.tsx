@@ -11,8 +11,8 @@ import useCurrentUser from "@/hooks/useCurrentUser";
 
 
 export default function Sidebar() {
-  // const currentUser = useCurrentUser();
- console.log(useCurrentUser())
+  const currentUser = useCurrentUser();
+ 
 
   const items = [
     {

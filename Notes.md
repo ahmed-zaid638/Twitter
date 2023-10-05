@@ -30,7 +30,13 @@
 ============= Errors ===============
 [1] API handler should not return a value, received object
 - means that the backend route (response) should not  return value , should be json formate
-
+[2] 400 => Bad Request : problem with fetching data or data undefined
+    404 => Not Found   : the requste url not existed in the project api folder
+[3] The error "Property 'Example' does not exist on type 'never'" 
+   - occurs when TypeScript cannot infer the type and it defaults to the 'never' type
+   - To fix this issue, you need to ensure that TypeScript correctly understands the shape of that type
+t
+[4]
 
 ============== Prisma  ==========
 - npx prisma db push
