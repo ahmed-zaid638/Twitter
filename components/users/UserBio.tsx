@@ -4,6 +4,7 @@ import { format } from "date-fns";
 import useCurrentUser from "@/hooks/useCurrentUser";
 import useUser from "@/hooks/useUser";
 import Button from "../Button";
+import useEditModal from "@/hooks/useEditModal";
 interface UserBioProps {
   userId: string;
 }
@@ -11,7 +12,8 @@ interface UserBioProps {
 const UserBio: React.FC<UserBioProps> = ({ userId }) => {
   const { data: currentUser } = useCurrentUser();
   const { data: fetchedUser } = useUser(userId);
-
+  const EditModal = useEditModal();
+  console.log(EditModal.isOpen)
   const createdAt = useMemo(() => {
     if (!fetchedUser?.createdAt) {
       return null;
@@ -23,11 +25,17 @@ const UserBio: React.FC<UserBioProps> = ({ userId }) => {
   return (
     <div className="border-b-[1px] border-neutral-800 pb-4">
       <div className="flex justify-end p-2">
-        {currentUser?.id === userId ? (
-          <Button secondary label="Edit" onClick={""} />
+        {6 > 5 ? (
+          <Button
+            secondary
+            label="Edit"
+            onClick={() => {
+              EditModal.onOpen();
+            }}
+          />
         ) : (
           <Button
-            onClick={''}
+            onClick={() => ""}
             label={4 > 5 ? "Unfollow" : "Follow"}
             secondary={false}
             outline={true}
@@ -36,10 +44,10 @@ const UserBio: React.FC<UserBioProps> = ({ userId }) => {
       </div>
       <div className="mt-8 px-4">
         <div className="flex flex-col">
-          <p className="text-white text-2xl font-semibold">
-            {fetchedUser?.name}
-          </p>
-          <p className="text-md text-neutral-500">@{fetchedUser?.username}</p>
+          <p className="text-white text-2xl font-semibold"> Ahmed Zaid </p>
+          {/* <p className="text-white text-2xl font-semibold"> {fetchedUser?.name} </p> */}
+          <p className="text-md text-neutral-500">@ahmedzaid</p>
+          {/* <p className="text-md text-neutral-500">@{fetchedUser?.username}</p> */}
         </div>
         <div className="flex flex-col mt-4">
           <p className="text-white">{fetchedUser?.bio}</p>
@@ -54,7 +62,8 @@ const UserBio: React.FC<UserBioProps> = ({ userId }) => {
           "
           >
             <BiCalendar size={24} />
-            <p>Joined {createdAt}</p>
+            <p>Joined March 2020</p>
+            {/* <p>Joined {createdAt}</p> */}
           </div>
         </div>
         <div className="flex flex-row items-center mt-4 gap-6">

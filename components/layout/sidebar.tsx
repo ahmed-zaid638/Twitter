@@ -9,10 +9,11 @@ import FollowBar from "./FollowBar";
 import { signOut } from "next-auth/react";
 import useCurrentUser from "@/hooks/useCurrentUser";
 
-
 export default function Sidebar() {
+  // const {data : currentUser} = useCurrentUser();
   const currentUser = useCurrentUser();
- 
+
+  console.log({ From_SideBar: currentUser });
 
   const items = [
     {
@@ -34,7 +35,7 @@ export default function Sidebar() {
       auth: false,
     },
   ];
-  
+
   return (
     <div className="">
       <div className="p-3">

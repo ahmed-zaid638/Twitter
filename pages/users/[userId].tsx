@@ -7,9 +7,9 @@ import UserBio from "@/components/users/UserBio";
 
 function UserView() {
   const router = useRouter();
-  const userId = router.query;
-  const userIdAsString = typeof userId === 'string' ? userId : '';
-  const { data: fetchedUser, isLoading } = useUser(userIdAsString);
+  const {userId} = router.query;
+  console.log(userId)
+  const { data: fetchedUser, isLoading } = useUser(userId as string);
 
   // console.log({fromUserId : fetchedUser})
 
@@ -20,11 +20,12 @@ function UserView() {
   //     </div>
   //   );
   // }
+  
   return (
     <>
       <Header label={"User View"} showBackArrow={true} />
-      <UserHero userId= {userId as unknown as string} />
-      <UserBio />
+      <UserHero userId= {userId as string} />
+      <UserBio userId={userId as string} />
     </>
   );
 }

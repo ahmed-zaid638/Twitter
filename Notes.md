@@ -15,8 +15,12 @@
 - usecallback dependency array dependent on the body of the function
 - session is used for sign in , not for  register
 - if you want to fetch data from the backend just start url with api and you dont have to sepicify the full path (/api/anything)
+- any file exist in api folder consider backend  other than this is Front end
+- when using tailwind with form , the input field will not have border 
+- we submit we can select its elements by it name filed  , and use the value of the name
+- the value of file input is the path of selected file
+- API key , API environment variable
 - 
-
 
 ========= Mindset ===========
 - Catching rendering errors with an error boundary 
@@ -35,7 +39,6 @@
 [3] The error "Property 'Example' does not exist on type 'never'" 
    - occurs when TypeScript cannot infer the type and it defaults to the 'never' type
    - To fix this issue, you need to ensure that TypeScript correctly understands the shape of that type
-t
 [4]
 
 ============== Prisma  ==========

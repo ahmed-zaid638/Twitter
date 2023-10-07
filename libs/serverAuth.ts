@@ -16,7 +16,7 @@ const serverAuth = async (req: NextApiRequest, res: NextApiResponse) => {
   if (!currentUser) {
     throw new Error("Not signed in 2");
   }
-  console.log(currentUser)
+  console.log({From_ServerAuth : currentUser})
   return currentUser ;
 };
 

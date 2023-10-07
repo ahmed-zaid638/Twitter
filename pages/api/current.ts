@@ -12,12 +12,15 @@ export default async function handler(
   try {
     // console.log("test 1");
     const  currentUser  = await serverAuth(req, res);
-    console.log({fronmCurrentApi : currentUser})
+    console.log({From_CurrentApi : currentUser})
     // console.log("test 2");
-    return  res.status(200).json({currentUser})
+    return  res.status(200).json(currentUser)
   } catch (error) {
     console.log(error);
     return res.status(400).end();
   }
 }
+
+
+
 
