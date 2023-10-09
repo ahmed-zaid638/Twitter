@@ -11,10 +11,8 @@ export default async function handler(
   }
   try {
     const { userId } = req.query;
-    console.log(userId)
     if (!userId || typeof userId !== "string") {
-      // throw new Error("Invalid ID");
-      return 
+      throw new Error("Invalid ID");
     }
     const existingUser = await prisma.user.findUnique({
       where: {

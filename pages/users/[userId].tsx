@@ -8,18 +8,17 @@ import UserBio from "@/components/users/UserBio";
 function UserView() {
   const router = useRouter();
   const {userId} = router.query;
-  console.log(userId)
+
   const { data: fetchedUser, isLoading } = useUser(userId as string);
+  console.log({fromUserId : fetchedUser})
 
-  // console.log({fromUserId : fetchedUser})
-
-  // if (isLoading || !fetchedUser) {
-  //   return (
-  //     <div className="flex justify-center items-center h-full">
-  //       <ClipLoader color="lightblue" size={60} />
-  //     </div>
-  //   );
-  // }
+  if (isLoading || !fetchedUser) {
+    return (
+      <div className="flex justify-center items-center h-full">
+        <ClipLoader color="lightblue" size={60} />
+      </div>
+    );
+  }
   
   return (
     <>

@@ -12,7 +12,7 @@ export default async function handler(
   }
 
   try {
-    const { currentUser } = await serverAuth(req, res);
+    const {currentUser}  = await serverAuth(req, res);
     const { name, username, bio, profileImage, coverImage } = req.body;
 
     if (!name || !username) {
@@ -38,3 +38,4 @@ export default async function handler(
     return res.status(400).end();
   }
 }
+

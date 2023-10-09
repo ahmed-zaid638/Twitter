@@ -8,7 +8,8 @@ import useUser from "@/hooks/useUser";
 
 import Input from "../Input";
 import Modal from "../Modal";
-// import ImageUpload from "../ImageUpload";
+import ImageUpload from "../ImageUpload";
+
 
 const EditModal = () => {
   const { data: currentUser } = useCurrentUser();
@@ -36,10 +37,10 @@ const EditModal = () => {
     currentUser?.coverImage,
   ]);
 
- 
   const onSubmit = useCallback(async () => {
     try {
       setIsLoading(true);
+      console.log("test 1")
 
       await axios.patch("/api/edit", {
         name,
@@ -48,13 +49,14 @@ const EditModal = () => {
         profileImage,
         coverImage,
       });
+      console.log("test 2")
       mutateFetchedUser();
 
       toast.success("Updated");
 
       editModal.onClose();
     } catch (error) {
-      toast.error("Something went wrong");
+      toast.error("Something went wrong hh");
     } finally {
       setIsLoading(false);
     }
@@ -70,6 +72,18 @@ const EditModal = () => {
 
   const bodyContent = (
     <div className="flex flex-col gap-4">
+      <ImageUpload
+        value={profileImage}
+        disabled={isLoading}
+        onChange={(image) => setProfileImage(image)}
+        label="Upload profile image"
+      />
+      <ImageUpload
+        value={coverImage}
+        disabled={isLoading}
+        onChange={(image) => setCoverImage(image)}
+        label="Upload cover image"
+      />
       <Input
         placeholder="Name"
         onChange={(e) => setName(e.target.value)}
@@ -90,7 +104,6 @@ const EditModal = () => {
       />
     </div>
   );
-
   return (
     <Modal
       disabled={isLoading}
