@@ -20,7 +20,8 @@
 - we submit we can select its elements by it name filed  , and use the value of the name
 - the value of file input is the path of selected file
 - API key , API environment variable
-- 
+- we can setup function that returns true or false value
+- is(text) => means you want to return boolean value
 
 ========= Mindset ===========
 - Catching rendering errors with an error boundary 
@@ -50,3 +51,11 @@
 
 ============== Conepts ============
 - API Handler: function responsible for handling incoming API requests and providing responses
+
+======== Upcoming Features =======
+- search user
+- share post
+- who liked the post
+- like button animation 
+- show commnents feed
+- 

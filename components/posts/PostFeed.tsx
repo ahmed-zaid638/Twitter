@@ -8,7 +8,7 @@ interface PostFeedProps {
 
 function PostFeed({ userId }: PostFeedProps) {
   const { data: posts = [], isLoading } = usePosts(userId);
-  console.log({ From_PostFeed: posts });
+  // console.log({ From_PostFeed: posts });
   if (isLoading) {
     return <div className="text-white p-4" >Loading posts...</div>;
   }

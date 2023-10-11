@@ -9,11 +9,8 @@ import PostFeed from "@/components/posts/PostFeed";
 function UserView() {
   const router = useRouter();
   const {userId} = router.query;
-// console.log({userId : userId})
   const { data: fetchedUser, isLoading  } = useUser(userId as string);
-
-  console.log({fromUserId : fetchedUser})
-
+  // console.log({From_UserId: fetchedUser})
   if (isLoading || !fetchedUser) {
     return (
       <div className="flex justify-center items-center h-full">

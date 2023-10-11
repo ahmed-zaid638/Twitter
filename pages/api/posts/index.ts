@@ -25,7 +25,7 @@ export default async function handler(
     }
     if (req.method === "GET") {
       const { userId } = req.query;
-      console.log({ userId : userId});
+      // console.log({ userId : userId});
       let posts;
       if (userId && typeof userId === "string") {
         posts = await prisma?.post.findMany({

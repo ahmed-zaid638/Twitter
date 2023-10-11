@@ -5,7 +5,7 @@ import useSWR from "swr";
 const usePost = (postId?: string) => {
   const { data, error, isLoading, mutate } = useSWR(postId ? `/api/posts/${postId}` : null, fetcher);
   if(data){
-    console.log({ From_UsePost: data });
+    // console.log({ From_UsePost: data });
   }
 
   return {

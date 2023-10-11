@@ -4,7 +4,7 @@ import useSWR from "swr";
 const useCurrentUser = () => {
   const { data, isLoading, error, mutate } = useSWR("/api/current", fetcher);
   if (data) {
-    console.log({ From_UseCurrentUser: data });
+    // console.log({ From_UseCurrentUser: data });
   }
 
   return {
