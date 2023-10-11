@@ -11,11 +11,12 @@ export default async function handler(
     res.status(405).end();
   }
   try {
-    const { postId } = req.body;
+    const { postId } = req.query;
+    console.log(postId)
     if (!postId || typeof postId !== "string") {
       throw Error("Invalid ID");
     }
-    const post = prisma.post.findUnique({
+    const post = await prisma.post.findUnique({
       where: {
         id: postId,
       },
@@ -31,7 +32,7 @@ export default async function handler(
         },
       },
     });
-
+    //  console.log({From_PostId_Api : post})
     return res.status(200).json(post);
   } catch (error) {
     console.log(error);

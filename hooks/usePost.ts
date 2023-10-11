@@ -1,13 +1,11 @@
 import fetcher from "@/libs/fetcher";
-import { da } from "date-fns/locale";
 import useSWR from "swr";
 
-const usePost = (postId?: string) => {
+const usePost = (postId: string) => {
   const { data, error, isLoading, mutate } = useSWR(postId ? `/api/posts/${postId}` : null, fetcher);
   if(data){
     // console.log({ From_UsePost: data });
   }
-
   return {
     data,
     error,

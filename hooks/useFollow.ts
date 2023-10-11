@@ -8,6 +8,7 @@ import { useCallback, useMemo } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
 
+
 const useFollow = (userId: string) => {
   const { data: currentUser, mutate: mutateCurrentUser } = useCurrentUser();
   const { mutate: mutateFetchedUser } = useUser(userId);;
@@ -18,10 +19,9 @@ const useFollow = (userId: string) => {
    console.log({list : list})
     return list.includes(userId);
   }, [currentUser, userId]);
-
   
 
-  const toggleFollow = useCallback(async () => {
+  const toggleFollow = useCallback(async() => {
     if (!currentUser) {
       LoginModal.onOpen();
     }

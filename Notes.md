@@ -29,7 +29,7 @@
 - In Auth UI you shoul depend on toggling modals not redirect urls
 - console showing the error ,  termnail showing the source of this error
 - you sould always ensure that data is safely deliverd to the front end
-- 
+- files in the backend(api) should be (.ts) , while in the front end (.tsx)
 
 
 ============= Errors ===============
