@@ -25,7 +25,7 @@ export default async function handler(
     }
     if (req.method === "GET") {
       const { userId } = req.query;
-      console.log({ userId });
+      console.log({ userId : userId});
       let posts;
       if (userId && typeof userId === "string") {
         posts = await prisma?.post.findMany({
@@ -41,6 +41,7 @@ export default async function handler(
           },
         });
       } else {
+       
         posts = await prisma?.post.findMany({
           include: {
             user: true,
@@ -49,9 +50,10 @@ export default async function handler(
           orderBy: {
             createdAt: "desc",
           },
-        });
+        });  
       }
-      return res.status(200).json(postMessage);
+      return res.status(200).json(posts);
+      
     }
   } catch (error) {
     console.log(error);

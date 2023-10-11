@@ -8,16 +8,17 @@ import SidebarTweetButton from "./SidebarTweetButton";
 import { signOut } from "next-auth/react";
 import useCurrentUser from "@/hooks/useCurrentUser";
 
-
 export default function Sidebar() {
-  const { data: currentUser } = useCurrentUser();
- 
+  const { data: currentUser , isLoading } = useCurrentUser();
+   if(currentUser) {
+    // console.log(currentUser.currentUser.id)
+   }
+
   const items = [
     {
       label: "Home",
       icon: BsHouseFill,
       href: "/",
-
     },
     {
       label: "Notifications",
@@ -28,7 +29,7 @@ export default function Sidebar() {
     {
       label: "Profile",
       icon: FaUser,
-      href: `users/${currentUser?.id}`,
+      href: `/users/${currentUser?.currentUser.id}`,
       auth: true,
     },
   ];
@@ -55,7 +56,7 @@ export default function Sidebar() {
               label="Logout"
               icon={BiLogOut}
               onClick={() => signOut()}
-               href={""}              
+              href={""}
             />
           )}
         </div>
