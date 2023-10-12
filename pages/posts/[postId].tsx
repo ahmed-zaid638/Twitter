@@ -1,4 +1,6 @@
+import Form from '@/components/Form'
 import Header from '@/components/Header'
+import CommentFeed from '@/components/posts/CommentFeed'
 import PostFeed from '@/components/posts/PostFeed'
 import PostItem from '@/components/posts/PostItem'
 import usePost from '@/hooks/usePost'
@@ -23,6 +25,8 @@ function Post() {
     <div className='text-white'>
         <Header label={'post'} showBackArrow={true} />
         <PostItem data={fetechedPost} />
+        <Form  postId={postId as string}  isComment placeholder="Tweet your reply" />
+        <CommentFeed comments={fetechedPost?.comments} />
     </div>
   )
 }

@@ -22,6 +22,7 @@
 - API key , API environment variable
 - we can setup function that returns true or false value
 - is(text) => means you want to return boolean value
+- API design => ensure the method , incomming data , requsted data , handle requst
 
 ========= Mindset ===========
 - Catching rendering errors with an error boundary 
@@ -30,7 +31,7 @@
 - console showing the error ,  termnail showing the source of this error
 - you sould always ensure that data is safely deliverd to the front end
 - files in the backend(api) should be (.ts) , while in the front end (.tsx)
-
+- we can send search query with post requst  ; axios.post('/api/comments?postId=${postId}') 
 
 ============= Errors ===============
 [1] API handler should not return a value, received object

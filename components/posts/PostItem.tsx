@@ -18,6 +18,7 @@ function PostItem({ data = {}, userId }: PostItemProps) {
   const loginModal = useLoginModal();
   const { hasLiked, toggleLike } = useLike({ postId: data.id, userId});
   console.log(hasLiked)
+  const LikeIcon = hasLiked ? AiFillHeart : AiOutlineHeart;
   // console.log({From_PostItem : data}) 
    
   // goToUser
@@ -127,7 +128,7 @@ function PostItem({ data = {}, userId }: PostItemProps) {
                 transition 
                 hover:text-red-500
             ">
-              <AiOutlineHeart color={hasLiked ? 'red' : ''} size={20} />
+              <LikeIcon color={hasLiked ? 'red' : ''} size={20} />
               <p>
                 {data.likedIds.length}
               </p>

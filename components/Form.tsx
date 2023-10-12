@@ -19,9 +19,10 @@ interface FormProps {
 }
 
 function Form({ placeholder, isComment, postId }: FormProps) {
+  const [isLoading , setIsLoading ] = useState(false)
   const registerModal = useRegisterModal();
   const loginModal = useLoginModal();
-  const { data: currentUser  ,isLoading} = useCurrentUser();
+  const { data: currentUser } = useCurrentUser();
   const { mutate: mutatePosts } = usePosts();
   const [body, setBody] = useState("");
   // const [isLoading, setIsLoading] = useState(false);
@@ -29,20 +30,21 @@ function Form({ placeholder, isComment, postId }: FormProps) {
   // onsubmit
   const onSubmit = useCallback(async () => {
     try {
-      // setIsLoading(true);
-      axios.post("/api/posts", { body });
+      setIsLoading(true);
+      console.log({isComment : isComment})
+      const url =  isComment ? `/api/comments?postId=${postId}` : '/api/posts'
+      axios.post(url, { body });
       toast.success("Tweat Created ");
       setBody("");
       mutatePosts();
     } catch (error) {
       console.log(error);
     }
-  }, [body, mutatePosts]);
+  }, [body, mutatePosts  , isComment , postId]);
 
   if (!currentUser) {
     return (
       <div className="flex justify-center items-center h-full mt-10">
-        {/* <ClipLoader color="lightblue" size={40} /> */}
         <PulseLoader color="white" size={15} />
       </div>
     );
